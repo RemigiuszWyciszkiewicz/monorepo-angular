@@ -7,7 +7,7 @@ import { CryptocurrencyEntity } from 'libs/crypto/data-access/models/cryptocurre
   providedIn: 'root'
 })
 export class RestService {
-  constructor(private httpClint: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
   headers = new HttpHeaders({
     Accept: 'application/json',
@@ -18,8 +18,8 @@ export class RestService {
       'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
   });
 
-  getCryptocurrencyEntityList(currencySymbol: string): Observable<any> {
-    return this.httpClint
+  getCryptocurrencyEntityList(currencySymbol: string): Observable<CryptocurrencyEntity[]> {
+    return this.httpClient
       .get<any>(
         `https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?id=1,1027,52,1831,2,1765,1839,83,512,2010,1958,328,131,1720,873,1376&convert=${currencySymbol}`,
         { headers: this.headers }
