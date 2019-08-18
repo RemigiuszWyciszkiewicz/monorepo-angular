@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
   constructor(private restService: RestService) {}
   ngOnInit(): void {
-    console.log(this.restService.getCryptoList().subscribe(data => console.log(data)));
+    console.log(this.restService.getCryptocurrencyEntityList('USD').subscribe(data => console.log(data)));
   }
 
 
