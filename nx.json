@@ -19,6 +19,9 @@
     },
     "crypto-feature-main-list": {
       "tags": []
+    },
+    "shared-data-access": {
+      "tags": []
     }
   }
 }

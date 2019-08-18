@@ -19,7 +19,8 @@
       "@myorg/ui": ["libs/ui/src/index.ts"],
       "@myorg/crypto/feature/main-list": [
         "libs/crypto/feature/main-list/src/index.ts"
-      ]
+      ],
+      "@myorg/shared/data-access": ["libs/shared/data-access/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
