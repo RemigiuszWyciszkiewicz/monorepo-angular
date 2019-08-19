@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ContentChildren, AfterViewInit, QueryList } from '@angular/core';
 
 @Component({
   selector: 'myorg-bootstrap-table',
   templateUrl: './bootstrap-table.component.html',
   styleUrls: ['./bootstrap-table.component.scss']
 })
-export class BootstrapTableComponent implements OnInit {
+export class BootstrapTableComponent implements AfterViewInit {
+  @Input() data: any[];
+  @ContentChildren('header') rows: QueryList<any>;
 
-  constructor() { }
-
-  ngOnInit() {
+  ngAfterViewInit() {
+   this.rows.forEach( a => console.log(a));
+   console.log(this.rows);
   }
 
 }

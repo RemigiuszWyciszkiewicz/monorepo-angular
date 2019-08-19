@@ -1,18 +1,11 @@
 <div class="table">
   <table>
     <thead>
-      <tr>
-        <th>Title</th>
-        <th style="text-align:center">Price</th>
-        <th>Change in last hour</th>
-        <th>Change in last 24h</th>
-        <th>Change in last 7d</th>
-        <th>Market Cap</th>
-      </tr>
+      <ng-content></ng-content>
     </thead>
     <tbody>
-      <tr>
-  <th></th>
+      <tr *ngFor="let cryptoEntity of data">
+  <th>{{cryptoEntity.name}}</th>
   <th></th>
   <th></th>
   <th></th>
@@ -21,3 +14,4 @@
     </tbody>
   </table>
 </div>
+
