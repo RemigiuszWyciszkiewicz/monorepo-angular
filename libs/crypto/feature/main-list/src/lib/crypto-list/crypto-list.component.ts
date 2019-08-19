@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './crypto-list.component.html',
   styleUrls: ['./crypto-list.component.scss']
 })
-export class CryptoListComponent implements OnInit {
+export class CryptoListComponent  {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
 
 }
