@@ -25,7 +25,10 @@
               "apps/cypto-research/src/favicon.ico",
               "apps/cypto-research/src/assets"
             ],
-            "styles": ["apps/cypto-research/src/styles.scss"],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "apps/cypto-research/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -206,6 +209,71 @@
             "jestConfig": "libs/shared/data-access/jest.config.js",
             "tsConfig": "libs/shared/data-access/tsconfig.spec.json",
             "setupFile": "libs/shared/data-access/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "crypto-feature-start-page": {
+      "projectType": "library",
+      "root": "libs/crypto/feature/start-page",
+      "sourceRoot": "libs/crypto/feature/start-page/src",
+      "prefix": "myorg",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/crypto/feature/start-page/tsconfig.lib.json",
+              "libs/crypto/feature/start-page/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/crypto/feature/start-page/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/crypto/feature/start-page/jest.config.js",
+            "tsConfig": "libs/crypto/feature/start-page/tsconfig.spec.json",
+            "setupFile": "libs/crypto/feature/start-page/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "shared-ui-table": {
+      "projectType": "library",
+      "root": "libs/shared/ui/table",
+      "sourceRoot": "libs/shared/ui/table/src",
+      "prefix": "myorg",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/ui/table/tsconfig.lib.json",
+              "libs/shared/ui/table/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/ui/table/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/ui/table/jest.config.js",
+            "tsConfig": "libs/shared/ui/table/tsconfig.spec.json",
+            "setupFile": "libs/shared/ui/table/src/test-setup.ts"
           }
         }
       },

@@ -22,6 +22,12 @@
     },
     "shared-data-access": {
       "tags": []
+    },
+    "crypto-feature-start-page": {
+      "tags": []
+    },
+    "shared-ui-table": {
+      "tags": []
     }
   }
 }

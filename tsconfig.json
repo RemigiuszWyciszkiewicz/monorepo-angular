@@ -20,7 +20,11 @@
       "@myorg/crypto/feature/main-list": [
         "libs/crypto/feature/main-list/src/index.ts"
       ],
-      "@myorg/shared/data-access": ["libs/shared/data-access/src/index.ts"]
+      "@myorg/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@myorg/crypto/feature/start-page": [
+        "libs/crypto/feature/start-page/src/index.ts"
+      ],
+      "@myorg/shared/ui/table": ["libs/shared/ui/table/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
