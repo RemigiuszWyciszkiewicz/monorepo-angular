@@ -29,6 +29,7 @@ export class RestService {
           Object.values(value['data']).map(
             value =>
               new CryptocurrencyEntity(
+                value['id'],
                 value['name'],
                 value['symbol'],
                 value['quote'][`${currencySymbol}`]['price'],
@@ -43,6 +44,10 @@ export class RestService {
     
       );
   }
+
+  // getCryptocurrencyDetais(): Observable<CryptocurrencyEntity> {
+  //   return this.httpClient.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?id=10');
+  // }
 }
 
 // Object.values(value['data'])

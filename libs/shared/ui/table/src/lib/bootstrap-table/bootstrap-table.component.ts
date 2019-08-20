@@ -6,8 +6,7 @@ import { Component, OnInit, Input, ContentChildren, AfterViewInit, QueryList } f
   styleUrls: ['./bootstrap-table.component.scss']
 })
 export class BootstrapTableComponent implements AfterViewInit {
-  @Input() data: any[];
-  @ContentChildren('header') rows: QueryList<any>;
+  @ContentChildren('body') rows: QueryList<any>;
 
   ngAfterViewInit() {
    this.rows.forEach( a => console.log(a));

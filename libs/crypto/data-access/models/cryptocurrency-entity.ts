@@ -1,5 +1,6 @@
 export class CryptocurrencyEntity {
   constructor(
+    public id: number,
     public name: string,
     public symbol: string,
     public price: number,

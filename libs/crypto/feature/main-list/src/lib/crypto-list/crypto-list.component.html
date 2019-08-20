@@ -1,10 +1,21 @@
-<myorg-bootstrap-table [data]="cryptocurrencyList$ | async">
-  <tr>
-    <th>Title</th>
-    <th>Price</th>
-    <th>Change in last hour</th>
-    <th>Change in last 24h</th>
-    <th>Change in last 7d</th>
-    <th>Market Cap</th>
-  </tr>
+<myorg-bootstrap-table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Change in last hour</th>
+      <th>Change in last 24h</th>
+      <th>Change in last 7d</th>
+      <th>Market Cap</th>
+    </tr>
+  </thead>
+  <tbody #body>
+    <tr *ngFor="let cryptoEntity of cryptocurrencyList$ | async">
+      <th>{{ cryptoEntity.name }}</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </tbody>
 </myorg-bootstrap-table>
