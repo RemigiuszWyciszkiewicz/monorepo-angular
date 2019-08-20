@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CryptocurrencyEntity } from 'libs/crypto/data-access/models/cryptocurrency-entity';
+import { CryptocurrencyDetails } from 'libs/crypto/data-access/models/cryptocurrency-details';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +19,9 @@ export class RestService {
       'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
   });
 
-  getCryptocurrencyEntityList(currencySymbol: string): Observable<CryptocurrencyEntity[]> {
+  getCryptocurrencyEntityList(
+    currencySymbol: string
+  ): Observable<CryptocurrencyEntity[]> {
     return this.httpClient
       .get<any>(
         `https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?id=1,1027,52,1831,2,1765,1839,83,512,2010,1958,328,131,1720,873,1376&convert=${currencySymbol}`,
@@ -39,15 +42,31 @@ export class RestService {
                 value['quote'][`${currencySymbol}`]['market_cap']
               )
           )
-   
         )
-    
       );
   }
 
-  // getCryptocurrencyDetais(): Observable<CryptocurrencyEntity> {
-  //   return this.httpClient.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?id=10');
-  // }
+  getCryptocurrencyDetais(id: number): Observable<CryptocurrencyDetails> {
+    return this.httpClient
+      .get<any>(
+        `https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?id=${id}`,
+        { headers: this.headers }
+      )
+      .pipe(
+        map(
+          val =>
+            new CryptocurrencyDetails(
+              val.data[id].description,
+              val.data[id].logo,
+              val.data[id].name,
+              val.data[id].symbol,
+              val.data[id].urls.website,
+              val.data[id].urls.reddit,
+              val.data[id].urls.twitter
+            )
+        )
+      );
+  }
 }
 
 // Object.values(value['data'])

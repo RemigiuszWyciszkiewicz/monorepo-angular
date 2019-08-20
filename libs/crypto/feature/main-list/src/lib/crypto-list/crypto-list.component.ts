@@ -14,7 +14,7 @@ export class CryptoListComponent implements OnInit {
 
   ngOnInit() {
     this.cryptocurrencyList$ = this.cryptoService.getCryptocurrencyEntityList('USD');
-
+    this.cryptoService.getCryptocurrencyDetais(10).subscribe( val => console.log(val));
   }
 
 }
