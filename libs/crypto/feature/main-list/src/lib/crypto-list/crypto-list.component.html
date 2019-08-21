@@ -11,7 +11,7 @@
   </thead>
   <tbody #body>
     <tr *ngFor="let cryptoEntity of cryptocurrencyList$ | async">
-      <th>{{ cryptoEntity.name }}</th>
+      <th><a [routerLink]="['/main-list', cryptoEntity.symbol]"> {{ cryptoEntity.name }}</a></th>
       <th></th>
       <th></th>
       <th></th>
