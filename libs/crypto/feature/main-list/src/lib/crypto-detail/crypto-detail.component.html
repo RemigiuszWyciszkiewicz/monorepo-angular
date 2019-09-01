@@ -1,1 +1,5 @@
-<button (click)="goBack()">Back</button>>
+<button (click)="goBack()">Back</button>
+
+<div *ngIf="cryptocurrencyDetails$ | async as DATA" >
+   {{DATA.description}}
+</div>

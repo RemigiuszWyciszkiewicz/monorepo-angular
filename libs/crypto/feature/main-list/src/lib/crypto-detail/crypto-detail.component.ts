@@ -18,10 +18,11 @@ export class CryptoDetailComponent implements OnInit {
 
   ngOnInit() {
     this.rotue.paramMap.subscribe(val =>
-      this.cryptocurrencytSymbol=val.get('id')
+      this.cryptocurrencytSymbol = this.cryptocurrencytSymbol=val.get('id')
       );
-
-    this.restService.getCryptocurrencyDetais(this.cryptocurrencytSymbol).subscribe( val => this.cryptocurrencyDetails$ = val);
+    
+      this.cryptocurrencyDetails$ = this.restService.getCryptocurrencyDetais(this.cryptocurrencytSymbol);
+  
   }
 
   goBack() {

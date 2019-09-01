@@ -46,23 +46,23 @@ export class RestService {
       );
   }
 
-  getCryptocurrencyDetais(id: number): Observable<CryptocurrencyDetails> {
+  getCryptocurrencyDetais(symbol: string): Observable<CryptocurrencyDetails> {
     return this.httpClient
       .get<any>(
-        `https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?id=${id}`,
+        `https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?symbol=${symbol}`,
         { headers: this.headers }
       )
       .pipe(
         map(
           val =>
             new CryptocurrencyDetails(
-              val.data[id].description,
-              val.data[id].logo,
-              val.data[id].name,
-              val.data[id].symbol,
-              val.data[id].urls.website,
-              val.data[id].urls.reddit,
-              val.data[id].urls.twitter
+              val.data[symbol].description,
+              val.data[symbol].logo,
+              val.data[symbol].name,
+              val.data[symbol].symbol,
+              val.data[symbol].urls.website,
+              val.data[symbol].urls.reddit,
+              val.data[symbol].urls.twitter
             )
         )
       );
